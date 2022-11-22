@@ -2,7 +2,8 @@
   <div id="app">
     <Header></Header>
     <Hero />
-      <CryptoGraph style=""/>
+      <CryptoGraph/>
+      <Recommendations/>
   </div>
 </template>
 
@@ -10,6 +11,7 @@
 import Hero from "./components/Hero.vue";
 import Header from "./components/Header.vue";
 import CryptoGraph from "./components/CryptoGraph.vue";
+import Recommendations from './components/Recommendations.vue'
 
 export default {
   name: "App",
@@ -17,6 +19,7 @@ export default {
     Hero,
     Header,
     CryptoGraph,
+    Recommendations
   },
 };
 </script>
@@ -29,7 +32,7 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   /* text-align: center; */
   color: #2c3e50;
-  margin-top: 30px;
+  padding: 0rem -1rem;
 }
 
 .green-color {
@@ -50,6 +53,25 @@ export default {
   border-style: solid;
   border-width: medium;
   padding: 1rem 3rem;
+}
+
+.row {
+  display: flex;
+  margin-left: 3rem;
+}
+
+.column {
+  flex: 50%;
+}
+.circle {
+  background: linear-gradient(
+    177.23deg,
+    rgba(255, 138, 0, 0.4) -13.49%,
+    rgba(249, 210, 70, 0.4) 109.75%
+  );
+  filter: blur(100px);
+  border-radius: 900px;
+  z-index: -10;
 }
 
 div {

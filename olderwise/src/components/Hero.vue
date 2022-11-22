@@ -56,27 +56,8 @@ a {
   margin-top: 2rem;
   text-align: left;
 }
-.row {
-  display: flex;
-  margin-left: 3rem;
-}
-
-.column {
-  flex: 50%;
-}
-.circle {
-  background: linear-gradient(
-    177.23deg,
-    rgba(255, 138, 0, 0.4) -13.49%,
-    rgba(249, 210, 70, 0.4) 109.75%
-  );
-  filter: blur(100px);
-  border-radius: 900px;
-  z-index: -10;
-}
-
 .one {
-  position: absolute;
+  position: fixed;
   left: -25.46%;
   right: 74.48%;
   top: 59.89%;
@@ -84,7 +65,7 @@ a {
 }
 
 .two {
-  position: absolute;
+  position: fixed;
   left: 80.27%;
   right: -9.72%;
   top: -17.1%;

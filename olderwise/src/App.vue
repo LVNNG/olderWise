@@ -2,8 +2,9 @@
   <div id="app">
     <Header></Header>
     <Hero />
-      <CryptoGraph/>
-      <Recommendations/>
+    <CryptoGraph />
+    <Recommendations />
+    <SmartNotifications />
   </div>
 </template>
 
@@ -11,7 +12,8 @@
 import Hero from "./components/Hero.vue";
 import Header from "./components/Header.vue";
 import CryptoGraph from "./components/CryptoGraph.vue";
-import Recommendations from './components/Recommendations.vue'
+import Recommendations from "./components/Recommendations.vue";
+import SmartNotifications from "./components/SmartNotifications.vue";
 
 export default {
   name: "App",
@@ -19,7 +21,8 @@ export default {
     Hero,
     Header,
     CryptoGraph,
-    Recommendations
+    Recommendations,
+    SmartNotifications,
   },
 };
 </script>
@@ -32,7 +35,7 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   /* text-align: center; */
   color: #2c3e50;
-  padding: 0rem -1rem;
+  /* padding: 0rem -1rem; */
 }
 
 .green-color {
@@ -46,6 +49,14 @@ export default {
   background: -webkit-linear-gradient(left, #f9d246, #ff8a00);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+}
+
+.green-orange-gradient {
+  background: linear-gradient(263.24deg, #c89d05 39.57%, #18771b 77.63%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
 }
 
 .my-button {

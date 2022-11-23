@@ -29,6 +29,5 @@ p {
 div {
     padding-top: 5rem;
     background-color: #f4f4f4;
-    /* width: 100vw; */
 }
 </style>

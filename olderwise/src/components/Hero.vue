@@ -2,13 +2,42 @@
   <div class="circle two"></div>
   <div class="row">
     <div class="column">
+      <base-dialog v-if="isDialogActive" show="true" title="Would you like to:" @close="closeDialog">
+        <div class="row">
+          <div class="column">
+            <h2>For new customers</h2>
+          </div>
+          <div class="column">
+            <p>You can apply online with your ID number, as well as any of the following documents:</p>
+            <ul>
+              <li>Phone bill</li>
+              <li>Any bank statement</li>
+            </ul>
+          </div>
+          <div class="column">
+            <base-button link to="/application">Fill application form</base-button>
+          </div>
+        </div>
+      <div class="row">
+          <div class="column">
+            <h2>Enquiries</h2>
+          </div>
+          <div class="column">
+            <p>Leave your questions with us and we will get back to you in three to five business days.</p>
+          </div>
+          <div class="column">
+            <p>Fill enquiry form</p>
+          </div>
+        </div>
+      </base-dialog>
       <h1 class="orange-color orange-gradient" style="margin-top: 4rem; margin-bottom: 0px; padding-bottom: 0px;">Personalised Finance</h1>
       <h1 class="green-color" style="margin-top: 0px;">Safe and Secure</h1>
       <p class="green-color">
         The anti-scam solution to smarter and easier banking for older Singaporeans.
       </p>
 
-      <a href="www.google.com" class="my-button green-color">FIND OUT MORE</a>
+      <!-- <a href="www.google.com" class="my-button green-color">FIND OUT MORE</a> -->
+      <base-button @click="showDialog">FIND OUT MORE</base-button>
     </div>
     <div class="column">
       <img id="cardPicture" src="../assets/RightSection.svg" />
@@ -21,10 +50,24 @@
 </template>
 
 <script>
+import BaseButton from './ui/BaseButton.vue';
 export default {
-  name: "Hero",
-  props: {},
-};
+  components: { BaseButton },
+  data() {
+    return {
+      isDialogActive: false,
+    }
+  },
+  methods: {
+    showDialog(){
+      this.isDialogActive = !this.isDialogActive;
+      console.log(this.isDialogActive)
+    },
+    closeDialog(){
+      this.isDialogActive = false;
+    }
+  }
+}
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
@@ -37,7 +80,9 @@ export default {
   max-width: 50%;
   /* height: auto; */
   display: block;
-  margin: 2rem auto;
+  margin-bottom: 2rem;
+  padding-bottom: 2rem;
+  margin-left: 2rem;
 }
 h1,
 p {
@@ -70,5 +115,9 @@ a {
   right: -9.72%;
   top: -17.1%;
   bottom: 71.53%;
+}
+
+.column {
+  margin: 0rem 2rem;
 }
 </style>

@@ -15,7 +15,7 @@
             </ul>
           </div>
           <div class="column">
-            <base-button link to="/application">Fill application form</base-button>
+            <router-link to="/application">Fill application form</router-link>
           </div>
         </div>
       <div class="row">
@@ -47,12 +47,23 @@
     <img id="groupLogos" src="../assets/groupLogos.png"/>
   </div>
   <div class="circle one"></div>
+  <CryptoGraph />
+    <Recommendations />
+    <SmartNotifications />
 </template>
 
 <script>
-import BaseButton from './ui/BaseButton.vue';
+import CryptoGraph from "./CryptoGraph.vue";
+import Recommendations from "./Recommendations.vue";
+import SmartNotifications from "./SmartNotifications.vue";
+
+
 export default {
-  components: { BaseButton },
+  components: {
+    CryptoGraph,
+    Recommendations,
+    SmartNotifications
+  },
   data() {
     return {
       isDialogActive: false,

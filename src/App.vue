@@ -1,35 +1,26 @@
 <template>
-  <div id="app">
-    <Header></Header>
-    <Hero />
-    <CryptoGraph />
-    <Recommendations />
-    <SmartNotifications />
-  </div>
+  <Header></Header>
+  <router-view v-slot="slotProps">
+    <transition name="route" mode="out-in">
+      <component :is="slotProps.Component"></component>
+    </transition>
+  </router-view>
 </template>
 
 <script>
-import Hero from "./components/Hero.vue";
 import Header from "./components/Header.vue";
-import CryptoGraph from "./components/CryptoGraph.vue";
-import Recommendations from "./components/Recommendations.vue";
-import SmartNotifications from "./components/SmartNotifications.vue";
 
 export default {
   name: "App",
   components: {
-    Hero,
     Header,
-    CryptoGraph,
-    Recommendations,
-    SmartNotifications,
   },
 };
 </script>
 
 <style>
 @import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
-#app {
+* {
   font-family: Poppins, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;

@@ -1,6 +1,8 @@
 <template>
   <ul>
-    <li><h1 class="green-color">olderWise</h1></li>
+    <li><h1 >
+      <router-link class="green-color" to="/">olderWise</router-link>
+      </h1></li>
     <li id="burger-menu" style="float:right"><img src="../assets/Burgermenu.svg"></li>
   </ul>
 </template>
@@ -26,4 +28,8 @@ li {
 h1 {
     margin-top: 0;
 }
+a {
+  text-decoration: none;
+}
+
 </style>

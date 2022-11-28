@@ -1,10 +1,6 @@
 <template>
   <Header></Header>
-  <router-view v-slot="slotProps">
-    <transition name="route" mode="out-in">
-      <component :is="slotProps.Component"></component>
-    </transition>
-  </router-view>
+  <router-view/>
 </template>
 
 <script>
@@ -25,7 +21,7 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   /* text-align: center; */
-  color: #2c3e50;
+  /* color: #2c3e50; */
   /* padding: 0rem -1rem; */
 }
 

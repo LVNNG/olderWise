@@ -1,23 +1,23 @@
 <template>
-  <form @submit="postData" method="post">
+  <form @submit.prevent="onSubmit">
     <label>
       <span>First name:</span>
-      <input type="text" v-model="posts.firstName" />
+      <input type="text" id="firstName" v-model="posts.firstName" />
     </label>
     <br />
     <label>
       <span>Last name:</span>
-      <input type="text" v-model="posts.lastName" />
+      <input type="text" id="lastName" v-model="posts.lastName" />
     </label>
     <br />
     <label>
       <span>ID number:</span>
-      <input type="text" v-model="posts.IDnumber" />
+      <input type="text" id="IDnumber" v-model="posts.IDnumber" />
     </label>
     <br />
     <label>
       <span>Email Address:</span>
-      <input type="text" v-model="posts.email" />
+      <input type="text" id="email" v-model="posts.email" />
     </label>
     <hr />
     <div class="btn-block">
@@ -25,23 +25,68 @@
       <button type="submit">Submit</button>
     </div>
   </form>
+  <div>{{ message }}</div>
 </template>
 <script>
+import axios from "axios";
 export default {
   data() {
     return {
+      message: "",
       posts: {
-        firstName:null,
-        lastName: null,
-        IDnumber:null,
-        email:null
-      }
+        firstName: "",
+        lastName: "",
+        IDnumber: "",
+        email: "",
+      },
     };
   },
   methods: {
-    postData(e) {
-      this.axios.post('http://localhost:8080/posts/', this.posts)
-      e.preventDefault();
+    onSubmit() {
+      //   const form = document.querySelector("form");
+      //   const formURL =
+      //     "https://4glbnraxk2.execute-api.us-east-1.amazonaws.com/Prod/submitForm";
+
+      // form.onsubmit = e => {
+      //     e.preventDefault();
+
+      //   let data = {};
+      //   Array.from(form).map((input) => (data[input.id] = input.value));
+      //   console.log("Sending: ", JSON.stringify(data));
+
+      //   // Create the AJAX request
+      //   var xhr = new XMLHttpRequest();
+      //   xhr.open(form.method, formURL, true);
+      //   xhr.setRequestHeader("Accept", "application/json; charset=utf-8");
+      //   xhr.setRequestHeader("Content-Type", "application/json; charset=UTF-8");
+
+      //   // Send the collected data as JSON
+      //   xhr.send(JSON.stringify(data));
+
+      //   xhr.onloadend = (response) => {
+      //     if (response.target.status === 200) {
+      //       form.reset();
+      //       this.message = "Form submitted. Success!";
+      //     } else {
+      //       this.message = "Error! Please try again.";
+      //       console.error(JSON.parse(response.target.response).message);
+      //     }
+      //   };
+      // }
+      var dataJson = JSON.stringify(this.posts);
+      console.log(dataJson);
+      axios
+        .post(
+          "https://4glbnraxk2.execute-api.us-east-1.amazonaws.com/Prod/submitForm",
+          dataJson
+        )
+        .then((response) => {
+          console.log(response);
+        })
+        .catch((e) => {
+          console.log(e);
+        });
+      Event.preventDefault();
     },
   },
 };

@@ -25,7 +25,7 @@
       <button type="submit">Submit</button>
     </div>
   </form>
-  <div>{{ message }}</div>
+  <div v-if="messageShow">{{ message }}</div>
 </template>
 <script>
 import axios from "axios";
@@ -33,6 +33,7 @@ export default {
   data() {
     return {
       message: "",
+      messageShow: false,
       posts: {
         firstName: "",
         lastName: "",
@@ -81,9 +82,12 @@ export default {
           dataJson
         )
         .then((response) => {
+          this.message = "Your registration is successful!"
+          this.messageShow = true;
           console.log(response);
         })
         .catch((e) => {
+          this.message ="There was an error processing your request"
           console.log(e);
         });
       Event.preventDefault();
